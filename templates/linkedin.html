@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Extraction from LinkedIn Profile</title>
+    <link rel="stylesheet" href="../static/linkedin.css">
+</head>
+
+<body>
+    <div class="main">
+        <form id="linkedinform" action="" method="post" name="linkedinform" , data-name="linkedinformname">
+            <label for="luserinp">Enter a LinkedIn username or Profile url.</label>
+            <input type="text" name="LinkedIn Profile" id="luserinp" placeholder="Enter url / username"
+                value="{{request.form['profileinput']}}"></input>
+            <button type="submit" id="lsubmit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+selenium
+beautifulsoup4
+spacy
+ipywidgets
+numpy
+PyPDF2
+scikit_learn=0.21.2
