@@ -10,11 +10,15 @@
 </head>
 
 <body>
-    <div class="main">
+    <div class="menu">
+        <div class="declaration">
+            <h1 class="headingdec">Personality Extraction from Resume</h1>
+        </div>
         <form id="linkedinform" action="" method="post" name="linkedinform" , data-name="linkedinformname">
-            <label for="luserinp">Enter a LinkedIn username or Profile url.</label>
-            <input type="text" name="profileinput" id="luserinp" placeholder="Enter url / username"
-                value="{{request.form['profileinput']}}"></input>
+            <div class="lineone">
+                <label for="luserinp">Enter a LinkedIn username or Profile url.</label>
+                <input type="text" name="profileinput" id="luserinp" placeholder="Enter url / username"></input>
+            </div>
             <button type="submit" id="lsubmit">Submit</button>
         </form>
     </div>

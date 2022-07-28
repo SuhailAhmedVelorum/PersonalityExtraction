@@ -11,9 +11,14 @@
 
 <body>
     <div class="menu">
-        <form id="resumeform" action="" method="post" name="resumeform" , data-name="resumeform">
-            <label for="ruserinp">Enter the local full path to a resume.</label>
-            <input type="text" name="pathinput" id="ruserinp" placeholder="Enter full path"></input>
+        <div class="declaration">
+            <h1 class="headingdec">Personality Extraction from Resume</h1>
+        </div>
+        <form id="resumeform" action="" method="post" name="resumeform" data-name="resumeform">
+            <div class="lineone">
+                <label id="resumelabel" for="ruserinp">Enter the local full path to a resume:</label>
+                <input type="text" name="pathinput" id="ruserinp" placeholder="Enter full path"></input>
+            </div>
             <button type="submit" id="rsubmit">Submit</button>
         </form>
     </div>
