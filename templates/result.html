@@ -16,11 +16,12 @@
                 <th>Name</th>
                 <th>Score</th>
             </tr>
-            {% for name, score in result %}
+            {% for name in result %}
             <tr>
                 <td>{{ name }}</td>
-                <td>{{ score }}</td>
+                <td>{{ result[name][1] }} - {{ result[name][0] }}</td>
             </tr>
+            {% endfor %}
     </div>
 </body>
 

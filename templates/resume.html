@@ -11,10 +11,11 @@
 
 <body>
     <div class="menu">
-        <a href="resume.html"><button class="link-btn" location.href='./resume.html'><span>Parse a
-                    Resume</span></button></a>
-        <a href="linkedin.html"><button class="link-btn" location.href='./linkedin.html'><span>Parse a LinkedIn
-                    Profile</span></button></a>
+        <form id="resumeform" action="" method="post" name="resumeform" , data-name="resumeform">
+            <label for="ruserinp">Enter the local full path to a resume.</label>
+            <input type="text" name="pathinput" id="ruserinp" placeholder="Enter full path"></input>
+            <button type="submit" id="rsubmit">Submit</button>
+        </form>
     </div>
 </body>
 

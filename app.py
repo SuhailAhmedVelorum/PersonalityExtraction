@@ -3,9 +3,10 @@ from flask.helpers import url_for
 from backend import fetchLinkedInAbout, tokeniser, analyze, parsePDF, analyzePDF
 import pickle
 import spacy
-app = Flask(__name__)
 
-# Load models
+dummy_fn = lambda x:x
+
+nlp = spacy.load("en_core_web_sm")
 
 model_save_location = "./models/"
 
@@ -22,23 +23,25 @@ with open(model_save_location + 'LR_clf_NS_kaggle.pickle', 'rb') as f:
 with open(model_save_location + 'LR_clf_TF_kaggle.pickle', 'rb') as f:
     lr_tf = pickle.load(f)
 
-nlp = spacy.load("en_core_web_sm")
+
+app = Flask(__name__)
+
+
 
 @app.route("/")
 @app.route("/home")
 def home():
     return render_template('index.html')
 
-@app.route("/resume", methods=['POST'])
+@app.route("/resume", methods=['GET','POST'])
 def resume():
-    
-    # form = LoginForm()
-    # if form.validate_on_submit():
-    #     flash(f'Logged in as {form.username.data}', 'success')
-    #     return redirect(url_for('home'))
-    # return render_template('login.html', title='Login', form=form)
+    if request.method == 'POST':
+        filepath = request.form['pathinput']
+        result = analyzePDF(filepath)
+        return render_template('result.html', result=result)
+    return render_template('resume.html')
 
-@app.route("/linkedin", methods=['POST'])
+@app.route("/linkedin", methods=['GET','POST'])
 def linkedinparser():
     if request.method == 'POST':
         uname = request.form['profileinput']

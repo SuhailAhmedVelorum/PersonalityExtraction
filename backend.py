@@ -19,7 +19,7 @@ def fetchLinkedInAbout(urloruname):
 
     # Login To LinkedIn with bot credentials
     driver = webdriver.Chrome(
-        "X:\\Github\\PersonalityExtraction\\driver\\chromedriver.exe")
+        "C:\\Users\\ANIKA\\Downloads\\chromedriver_win32\\chromedriver.exe")
     driver.get("https://linkedin.com/uas/login")
     time.sleep(1)
     username = driver.find_element_by_id("username")
@@ -95,25 +95,26 @@ def tokeniser(sentence):
     return tokens
 
 
-model_save_location = "./models/"
-# lambda function that returns the same data back
-dummy_fn = lambda x:x
-
-with open(model_save_location + 'cv.pickle', 'rb') as f:
-    cv = pickle.load(f)
-with open(model_save_location + 'idf_transformer.pickle', 'rb') as f:
-    idf_transformer = pickle.load(f)
-with open(model_save_location + 'LR_clf_IE_kaggle.pickle', 'rb') as f:
-    lr_ie = pickle.load(f)
-with open(model_save_location + 'LR_clf_JP_kaggle.pickle', 'rb') as f:
-    lr_jp = pickle.load(f)
-with open(model_save_location + 'LR_clf_NS_kaggle.pickle', 'rb') as f:
-    lr_ns = pickle.load(f)
-with open(model_save_location + 'LR_clf_TF_kaggle.pickle', 'rb') as f:
-    lr_tf = pickle.load(f)
-
-
 def analyze(text):
+    model_save_location = "./models/"
+    # lambda function that returns the same data back
+    dummy_fn = lambda x:x
+    def dummy_fn(x):
+        return x
+
+    with open(model_save_location + 'cv.pickle', 'rb') as f:
+        cv = pickle.load(f)
+    with open(model_save_location + 'idf_transformer.pickle', 'rb') as f:
+        idf_transformer = pickle.load(f)
+    with open(model_save_location + 'LR_clf_IE_kaggle.pickle', 'rb') as f:
+        lr_ie = pickle.load(f)
+    with open(model_save_location + 'LR_clf_JP_kaggle.pickle', 'rb') as f:
+        lr_jp = pickle.load(f)
+    with open(model_save_location + 'LR_clf_NS_kaggle.pickle', 'rb') as f:
+        lr_ns = pickle.load(f)
+    with open(model_save_location + 'LR_clf_TF_kaggle.pickle', 'rb') as f:
+        lr_tf = pickle.load(f)
+
     c = cv.transform([tokeniser(text)])
     x = idf_transformer.transform(c)
 
